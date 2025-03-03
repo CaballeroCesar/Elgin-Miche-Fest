@@ -21,6 +21,41 @@
         .bg-gif {
             background: url('Miche Fest.gif') center/cover no-repeat;
         }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+
+        .text-glitch {
+          font-family: 'Wendy One', sans-serif;
+          font-size: 12vw;
+          white-space: nowrap;
+          overflow: hidden;
+          line-height: 220px;
+          color: #F7CA05;
+          text-shadow: 0 10px 7px rgba(0,0,0,0.4), 0 -10px 1px #fff;
+          letter-spacing: -3px;
+          text-align: center;
+        }
+
+        .box {
+          position: absolute;
+          top: 50%;
+          left:50%;
+          transform: translate(-50%,-50%);
+        }
+
+        .text-glitch:hover {
+          animation: glitch .3s linear infinite;
+          cursor: pointer;
+        }
+
+        @keyframes glitch {
+          0% { transform: translate(0); }
+          20% { transform: translate(-2px, 2px); }
+          40% { transform: translate(-2px, -2px); }
+          60% { transform: translate(2px, 2px); }
+          80% { transform: translate(2px, -2px); }
+          100% { transform: translate(0); }
+}
     </style>
 </head>
 <body>
@@ -58,7 +93,10 @@
     <section class="relative h-screen flex flex-col justify-center items-center text-center bg-gif mt-20">
     	<img src="Miche Fest.png" alt="Elgin Miche Fest Logo" style="margin-bottom: 0;"/>
         <h1 class="text-6xl font-bold animate-fade">Elgin Miche Fest</h1>
-        <p class="text-xl mt-4 animate-fade">June 1, 2025 - Elgin IL</p>
+        <p class="text-glitch">June 22, 2025</p>
+        <p class="text-xl mt-4 animate-fade">Festival Park, 132 S Grove Ave. Elgin IL, 60120</p>
+        <h2 class="text-4xl animate-fade font-bold">Countdown</h2>
+        <div id="countdown" class="text-2xl mt-4 animate-fade"></div>
         <button class="mt-6 px-6 py-3 bg-yellow-500 text-black font-bold rounded-lg animate-fade">Get Tickets</button>
     </section>
     
@@ -72,7 +110,7 @@
             <!-- Right: Event Details -->
             <div class="w-full md:w-1/2 text-center md:text-left">
                 <h2 class="text-5xl font-bold">2025 Lineup</h2>
-                <h3 class="text-3xl font-bold mt-4">June 1st</h3>
+                <h3 class="text-3xl font-bold mt-4">June 22, 2025</h3>
                 <p class="mt-4 text-lg">
                     Elgin Miche Fest 2025 will reach new heights. With so much more to look forward to – we look forward to bringing the biggest and best Miche Fest yet to life!
                 </p>
@@ -106,7 +144,7 @@
 
         // Countdown Timer
         function startCountdown() {
-            const eventDate = new Date("June 1, 2025 00:00:00").getTime();
+            const eventDate = new Date("June 22, 2025 00:00:00").getTime();
             setInterval(() => {
                 const now = new Date().getTime();
                 const distance = eventDate - now;
